@@ -13,6 +13,8 @@
     --hero-icons-color:black;
     --html-background-color:rgb(255, 255, 255);
     --text-color:rgb(0, 0, 0);
+    --primary-color2:rgba(188, 188, 32, 0.536);
+    --dark-color:black;
 }
 *{
     /* border: 2px solid red; */
@@ -132,7 +134,6 @@ nav{
 body{
     margin: 0 auto;
     overflow-y:visible;
-    position: absolute;
     background-color: var(--html-background-color);
     
     
@@ -267,13 +268,34 @@ margin-top: 80px;
     margin: 15px auto;
     padding: 0;
     font-size: 35px;
+    transition: color 5s;
     
 }
-.social li a{
+.social :hover{
+    color: var(--primary-color);
+}
+.social li i {
     color: var(--hero-icons-color);
+    transition: color .3s;
+}
+.social li i :hover{
+    color: var(--primary-color);
+    
+    
+} 
+
+.btn{
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: none;
+    font-size: 30px;
     
 }
-
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
 .section{
     max-width: 1024px;
     margin: 0 auto;
@@ -320,7 +342,7 @@ margin-top: 80px;
     justify-content: center;
     flex-direction: column;
     /* background-color: rgba(0, 0, 0, 0.085); */
-    background-color: var(--skill-card-color);
+    background-color: var(--projects-color);
     border-radius: 20%;
     border: 0.5px solid var(--skill-card-border);
 }
@@ -364,28 +386,72 @@ margin-top: 80px;
 
 .projects{
     
-   
     border-radius: 5%;
     background-color: var(--projects-color);
+    overflow: hidden;
+    border: 1px solid var(--primary-color);
+}
+.projects h2{
+    color: var(--projects-tittle);
+    margin-left: 20px;
 }
 .projects img{
-width: 100%;
-.container{
-    margin-top: 200px;
+    width: 100%;
+    
+    
+}
+.project-links{
+    position: absolute;
+    top: 4px;
+    left: 16px;
+    width: 100%;
+    
+    display: flex;
+    gap: 10px;
+}
+.project-links a{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 20%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding: 4px 16px;
+    visibility: hidden;
+}
+.projects :hover .project-links a{
+    visibility: visible;
 }
 
-}
+
 .project-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px,1fr)) ;
-    
     gap: 20px;
     margin-top: 80px;
 
 }
+
 .case p{
-    margin: 2px 14px;
+    margin: 34px 14px;
     color: var(--text-color);
+    font-size: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.pimg1{
+    transition: transform 1s;
+}
+.pimg{
+    object-fit: cover;
+    overflow: hidden;
+    transition: transform 1s;
+    position: relative;
+    
+    
+}
+.projects :hover .pimg1 {
+    transform: scale(1.2);
+    overflow: hidden;
 }
 .frase{
     margin: 200px 0 30px 0;
@@ -400,12 +466,18 @@ width: 100%;
     margin-top: 80px;
     flex-wrap: wrap;
     color: var(--text-color);
+    transition: transform .5s;
+}
+
+.contact-icons-list :hover{
+    transform: scale(1.2);
 }
 .contact-icons-list i{
     font-size: 50px;
     color: var(--text-color);
 
 }
+
 .contact-icons-list a{
     text-decoration: none;
     display: flex;
@@ -416,6 +488,7 @@ width: 100%;
 
 }
 
+
 .contact-icons-list li{
     display: flex;
     align-items: center;
@@ -423,21 +496,28 @@ width: 100%;
     
 
 }
+
 .contact-icons-list span{
    font-size: 25px;
 
 }
 .container-contact{
     height: max-content;
+    margin-bottom: 120px;
     
 }
 .footer{
     height: 80px;
     width: 100%;
+    
     background-color: var(--secondary-color);
     box-shadow: 0 -2px 12px var(--primary-color);
     display: flex;
     align-items: center;
+    color: var(--dark-color);
+}
+.footer p{
+    margin-left: 40px;
 }
 
 @media (max-width: 900px){
@@ -454,7 +534,7 @@ width: 100%;
         left: 0%;
     
         bottom: -800%;
-        background-color: var(--media-background);
+        background-color: var(--primary-color2);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -503,7 +583,7 @@ width: 100%;
         transition: color .2s;
     }
     .active{
-        color: rgb(246, 99, 200);
+        color: rgb(171, 244, 247);
     }
     .menu-list-link:hover{
         color: var(--text-color);
@@ -547,7 +627,7 @@ width: 100%;
         width: 35px;
         height: 35px;
         margin: 0px 10px 0 0 ;
-        font-size: 25px;
+        font-size: 45px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -560,6 +640,42 @@ width: 100%;
     .hidden{
         visibility: hidden;
     }
+
+    .paragraph-section{
+     margin: 20px 25px;
+     font-size: 25px;
+    }
+
+    .skills-container{
+        margin: 0 auto;
+    }
+
+    .soft-habilities-container{
+        margin: 0 auto;
+    }
+
+    .projects{
+        margin: 0 30px;
+    }
+
+    .contact-icons{
+        margin: 0 15px;
+    }
+
+    .contact-icons-list{
+        
+        transition: transform .5s;
+    }
+    
+    .contact-icons-list :hover{
+        transform: scale(1.05);
+    }
+    .contact-icons-list i{
+        font-size: 30px;
+        color: var(--text-color);
+    
+    }
+
 }
 
 @media (min-width: 900px){
@@ -570,18 +686,21 @@ width: 100%;
 }
 
 .dark{
-    --primary-color: rgb(29, 29, 186);
-    --secondary-color: rgb(41, 39, 37);
+    --primary-color: rgb(0, 217, 255);
+    --secondary-color: rgb(27, 26, 25);
     --text-color: rgb(213, 232, 227);
     --shadow-color:rgb(169, 169, 169);
     --link-color:rgb(197, 229, 226);
     --skill-card-color:rgba(240, 219, 182, 0.495);
     --skill-card-border:rgba(0, 0, 0, 0.195);
-    --projects-color:rgba(249, 249, 11, 0.107);
-    --media-background:rgba(230, 230, 55, 0.569);
+    --projects-color:rgba(236, 236, 202, 0.107);
+    --media-background:rgba(219, 219, 171, 0.569);
     --hero-background-img:url("/DSC_0004DeNoche.jpg");
     --hero-icons-color:black;
-    --html-background-color:rgb(45, 41, 41);
+    --html-background-color:rgb(20, 19, 19);
     --text-color:whitesmoke;
+    --primary-color2:rgba(0, 217, 255, 0.536);
+    --dark-color:white;
+    --projects-tittle:rgba(0, 217, 255, 0.321);
     
 }

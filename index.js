@@ -55,6 +55,8 @@ const Typed = new Typed('#typing', {
         }
         
     }) 
+
+    
     
 
 
@@ -102,3 +104,70 @@ const sr = new ScrollReveal({
 //sr.reveal('.hero-tittle', { origin :'top',distance : '80px' });
 //absolute  relative
 
+
+/* <!-- .item$*3{item numero$} -->
+  <div class="item1">item numero 1</div>
+  <div class="item2">item numero 2</div>
+  <div class="item3">item numero 3</div>
+
+  <!-- ============= grid ================  -->
+
+  .element : nth-child(10)
+  grid-column-start : 3;
+  grid-column-end : 4
+  grid-column : 3/4;
+  grid-row : 3/4
+  grid-column :3 <!-- posicion --> / span 2 <!-- muevete 2 espacios -->
+  grid-auto-flow : row;     <!-- direccion del grid -->
+  grid-auto-flow : column;  <!-- direccion del grid -->
+  grid-auto-rows : 1fr;     <!-- dividir en cuntas imagenes exista -->
+  grid-auto-columns : 1fr;  <!-- dividir en cuntas imagenes exista -->
+  grid-template-rows : repeat(4 <!-- pro tip e vez de numero colocar auto-fit -->, 100px <!-- en vez de un solo parametro colocar minmax(300px o lo que se quiera, 1fr) -->);      <!-- dividir en 4 filas de 100 px cada espacio -->
+  grid-template-columns : repeat(4, 100px);   <!-- dividir en 4 columnas de 100 px cada espacio -->
+  justify-content  <!-- para todo el contenedor --> 
+  align-content    <!-- para todo el contenedor -->
+  justify-items    <!-- solo para los elementos internos (hijos) --> 
+  align-items      <!-- solo para los elementos internos (hijos) -->
+  justify-self     <!-- solo para un elemento interno especifico (hijos) --> 
+  align-self       <!-- solo para un elemento interno especifico (hijos) -->
+  object-fit:cover
+ */
+  var typed = new Typed('#typing', {
+    strings: ['Photographer', 'Developer', 'Designer'],
+    typeSpeed: 50,
+    backSpeed : 50,
+    startDelay : 25,
+    loop : true,
+    loopCount : Infinity
+});
+
+const body = document.body
+const ls = window.localStorage
+const btnTheme = document.getElementById('btnTheme')
+
+// Preguntamos si esta activado el darkMode en el localStorage
+const theme = ls.getItem('darkMode')
+const sun = 'bx bxs-sun'
+const moon = 'bx bxs-moon'
+
+if (theme) {
+  body.classList.add('dark')
+  btnTheme.firstElementChild.className = sun
+} else {
+  body.classList.remove('dark')
+  btnTheme.firstElementChild.className = moon
+}
+
+btnTheme.addEventListener('click', function () {
+  body.classList.toggle('dark')
+  if (body.classList.contains('dark')) {
+    // entonces guardo en el localStorage el valor de dark
+    ls.setItem('darkMode', true)
+    btnTheme.firstElementChild.className = sun
+  } else {
+    // entonces voy a eliminar del localStorage el valor de dark
+    ls.removeItem('darkMode')
+    btnTheme.firstElementChild.className = moon
+  }
+
+})
